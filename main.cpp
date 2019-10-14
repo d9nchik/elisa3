@@ -15,15 +15,17 @@ int main() {
     int counter = 1;
     float suma = 0;
     float up = a - 1;
-    while (abs((up) / static_cast<float>(counter)) > 0.0000001) {
+    float decimal = up;
+    while (abs(decimal) > 0.0000001) {
         if (counter % 2) {
-            suma += up / static_cast<float>(counter);
+            suma += decimal;
         } else {
-            suma -= up / static_cast<float>(counter);
+            suma -= decimal;
         }
-        cout << "Текущая дробь: " << setw(9) << fixed << setprecision(7) << up / static_cast<float>(counter) << endl;
+        cout << "Текущая дробь: " << setw(9) << fixed << setprecision(7) << decimal << endl;
         up = up * (a - 1);
         counter++;
+        decimal = up / static_cast<float>(counter);
     }
     cout << "Ln(a) = " << fixed << setprecision(6) << suma;
 
